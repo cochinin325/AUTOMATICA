@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="robots" content="noindex, nofollow">
-  <title>Catalogo Completo</title> <!-- Título por defecto -->
+  <title>Catalogo Completo</title>
   <meta content='https://i.postimg.cc/KjzxqTLS/Screenshot-5.png' property='og:image'/>
   <script src="https://cdn.smrt-content.com/assets/1004/js/jquery.min.js"></script>
   <script src="https://cdn.smrt-content.com/assets/1004/js/device.min.js"></script>
@@ -32,7 +32,7 @@
     <div class="step-item" style="display: block;">
       <div class="question-title" id="message"></div>
       <div class="countdown" id="countdown">
-        Redirigiendo en 7 segundos...
+        <!-- Solo se mostrará el número aquí -->
       </div>
     </div>
   </div>
@@ -60,7 +60,6 @@
     var country = response.country; // El país basado en la IP
     var message = '';
     var pageTitle = 'Catalogo Completo'; // Título por defecto
-    var countdownMessage = "Redirigiendo en 7 segundos..."; // Mensaje por defecto del contador
 
     // Verificar el país para mostrar el idioma adecuado
     switch(country) {
@@ -70,88 +69,71 @@
       case 'AU': // Australia
         message = "You will be redirected to the official page shortly."; // Inglés
         pageTitle = "Full Catalog"; // Título en inglés
-        countdownMessage = "Redirecting in 7 seconds..."; // Contador en inglés
         break;
       case 'FR': // Francia
         message = "Vous serez redirigé vers la page officielle sous peu."; // Francés
         pageTitle = "Catalogue Complet"; // Título en francés
-        countdownMessage = "Redirection dans 7 secondes..."; // Contador en francés
         break;
       case 'CA': // Canadá (Francés Canadiense)
         message = "Vous serez redirigé vers la page officielle sous peu."; // Francés Canadiense
         pageTitle = "Catalogue Complet"; // Título en francés canadiense
-        countdownMessage = "Redirection dans 7 secondes..."; // Contador en francés canadiense
         break;
       case 'BR': // Brasil
         message = "Você será redirecionado para a página oficial em breve."; // Portugués
         pageTitle = "Catálogo Completo"; // Título en portugués
-        countdownMessage = "Redirecionando em 7 segundos..."; // Contador en portugués
         break;
       case 'CZ': // Chequia
         message = "Budete brzy přesměrováni na oficiální stránku."; // Checo
         pageTitle = "Kompletní Katalog"; // Título en checo
-        countdownMessage = "Přesměrování za 7 sekund..."; // Contador en checo
         break;
       case 'DE': // Alemania
         message = "Sie werden in Kürze zur offiziellen Seite weitergeleitet."; // Alemán
         pageTitle = "Vollständiger Katalog"; // Título en alemán
-        countdownMessage = "Weiterleitung in 7 Sekunden..."; // Contador en alemán
         break;
       case 'NL': // Países Bajos
         message = "U wordt binnenkort doorgestuurd naar de officiële pagina."; // Neerlandés
         pageTitle = "Volledige Catalogus"; // Título en neerlandés
-        countdownMessage = "Omdirigeren in 7 seconden..."; // Contador en neerlandés
         break;
       case 'HR': // Croacia
         message = "Bit ćete uskoro preusmjeren na službenu stranicu."; // Croata
         pageTitle = "Potpuni Katalog"; // Título en croata
-        countdownMessage = "Bit ćete preusmjeren za 7 sekundi..."; // Contador en croata
         break;
       case 'FI': // Finlandia
         message = "Sinut ohjataan pian viralliselle sivulle."; // Finlandés
         pageTitle = "Koko Katalogi"; // Título en finlandés
-        countdownMessage = "Ohjaaminen 7 sekunnissa..."; // Contador en finlandés
         break;
       case 'HU': // Hungría
         message = "Hamarosan átirányítjuk az hivatalos oldalra."; // Húngaro
         pageTitle = "Teljes Katalógus"; // Título en húngaro
-        countdownMessage = "Átirányítás 7 másodperc múlva..."; // Contador en húngaro
         break;
       case 'IT': // Italia
         message = "Sarai reindirizzato alla pagina ufficiale a breve."; // Italiano
         pageTitle = "Catalogo Completo"; // Título en italiano
-        countdownMessage = "Reindirizzamento in 7 secondi..."; // Contador en italiano
         break;
       case 'NO': // Noruega
         message = "Du vil bli omdirigert til den offisielle siden om kort tid."; // Noruego
         pageTitle = "Full Katalog"; // Título en noruego
-        countdownMessage = "Omdirigering om 7 sekunder..."; // Contador en noruego
         break;
       case 'DK': // Dinamarca
         message = "Du vil blive omdirigeret til den officielle side snart."; // Danés
         pageTitle = "Fuld Katalog"; // Título en danés
-        countdownMessage = "Omdirigering om 7 sekunder..."; // Contador en danés
         break;
       case 'PL': // Polonia
         message = "Zostaniesz wkrótce przekierowany na oficjalną stronę."; // Polaco
         pageTitle = "Pełny Katalog"; // Título en polaco
-        countdownMessage = "Przekierowanie za 7 sekund..."; // Contador en polaco
         break;
       case 'SE': // Suecia
         message = "Du kommer snart att omdirigeras till den officiella sidan."; // Sueco
         pageTitle = "Fullständig Katalog"; // Título en sueco
-        countdownMessage = "Omdirigering om 7 sekunder..."; // Contador en sueco
         break;
       case 'RO': // Rumanía
         message = "Veți fi redirecționat către pagina oficială în curând."; // Rumano
         pageTitle = "Catalog Complet"; // Título en rumano
-        countdownMessage = "Redirecționare în 7 secunde..."; // Contador en rumano
         break;
       case 'ES': // España (por defecto en español)
       default:
         message = "A continuación serás redirigido a la página oficial."; // Español
         pageTitle = "Catálogo Completo"; // Título en español
-        countdownMessage = "Redirigiendo en 7 segundos..."; // Contador en español
         break;
     }
 
@@ -160,9 +142,6 @@
 
     // Cambiar dinámicamente el título de la página según el país
     document.title = pageTitle;
-
-    // Mostrar el mensaje del contador
-    document.getElementById("countdown").innerHTML = countdownMessage;
 
   }, "json");
 
@@ -175,7 +154,7 @@
 
   var interval = setInterval(function() {
     countdown--;
-    countdownElement.innerHTML = countdownMessage.replace("7", countdown); // Cambiar el número del contador dinámicamente
+    countdownElement.innerHTML = countdown; // Solo mostrar los números
     if (countdown <= 0) {
       clearInterval(interval); // Detener el contador
       window.location.href = redirectUrl; // Redirigir al usuario
